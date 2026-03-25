@@ -35,4 +35,8 @@ public class Prodotto {
         // poi arrotonda a 2 decimali, per difetto(verso il basso/DOWN)
 
     }
+
+    public String getNomeEsteso(){
+        return codice + "-" + nome;
+    }
 }

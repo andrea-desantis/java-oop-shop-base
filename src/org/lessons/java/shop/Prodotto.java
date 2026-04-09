@@ -7,11 +7,11 @@ import java.util.Random;
 
 
 public class Prodotto {
-    public int codice;
-    public String nome;
-    public String descrizione;
-    public BigDecimal prezzo;
-    public BigDecimal iva;
+    private int codice;
+    private String nome;
+    private String descrizione;
+    private BigDecimal prezzo;
+    private BigDecimal iva;
 
     public Prodotto (String nome, String descrizione, BigDecimal prezzo, BigDecimal iva){
         Random rand = new Random();
@@ -21,9 +21,44 @@ public class Prodotto {
         this.prezzo = prezzo;
         this.iva = iva;
     }
+    // codice prodotto solo in lettura (getter)
+    public int getCodice(){
+        return this.codice;
+    } 
+    // getter & setter (lettura e scrittura)
+    public String getNome(){
+        return this.nome;
+    }
+     public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public String getDescrizione(){
+        return this.descrizione;
+    }
+     public void setDescrizione(String descrizione){
+        this.descrizione = descrizione;
+    }
+
+    
+    public String getIva(){
+        // qui uso string perché non restituirò un numero, 
+        // ma una stringa per leggere meglio l'iva
+        return this.iva.multiply(new BigDecimal(100)) + "%";
+    }
+
+    public void setIva(BigDecimal iva){
+        this.iva = iva;
+    }
+    
+
 
     public BigDecimal getPrezzoBase(){
         return this.prezzo;
+    }
+
+    public void setPrezzo(BigDecimal prezzo){
+        this.prezzo = prezzo;
     }
 
     public BigDecimal getPrezzoConIva(){
